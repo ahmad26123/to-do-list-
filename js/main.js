@@ -1,3 +1,5 @@
+const { createElement } = require("react");
+
 document.addEventListener("DOMContentLoaded", () => {
   const taskList = document.getElementById("task-list");
   taskList.classList.add("list-group", "list-group-flush");
@@ -52,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
     leftcontainer.appendChild(checkbox);
     leftcontainer.appendChild(span);
 
-    // 2. إنشاء وتجهيز زر التفاصيل (aDiscripion) قبل استخدامه
     const aDiscripion = document.createElement("a");
     aDiscripion.classList.add("btn", "btn-primary", "btn-sm");
     aDiscripion.textContent = "Details";
@@ -64,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
     topRow.appendChild(aDiscripion);
     li.appendChild(topRow);
 
-    // 3. إنشاء قسم الوصف المخفي
     const collapseDiv = document.createElement("div");
     collapseDiv.classList.add("collapse", "mt-2");
     collapseDiv.id = uniqueId;
@@ -94,3 +94,12 @@ document.addEventListener("DOMContentLoaded", () => {
     taskForm.addEventListener("submit", addTask);
   }
 });
+
+const creatStatmint = (dad) => {
+  const div = document.createElement("div");
+  div.className = "btn-group dropend";
+  const btn = document.createElement("button");
+  btn.className = "btn btn-secondary dropdown-toggle"
+  btn.data-bs-toggle = "dropdown"
+
+};
