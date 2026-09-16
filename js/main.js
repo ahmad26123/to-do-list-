@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const userSelect = document.querySelector("#user-select select");
 
     const tTitle = taskTitleInput ? taskTitleInput.value.trim() : "";
+    const tDesc = taskDescriptionInput ? taskDescriptionInput.value.trim() : "";
     const uSelec = userSelect ? userSelect.value.trim() : "";
 
     if (tTitle === "" || uSelec === "" || uSelec === "Choose...") {
@@ -27,30 +28,19 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const uniqueId = "collapse-" + Date.now();
+
     const li = document.createElement("li");
-    li.classList.add(
-      "list-group-item",
+    li.classList.add("list-group-item", "mb-2");
+
+    const topRow = document.createElement("div");
+    topRow.classList.add(
       "d-flex",
       "align-items-center",
       "justify-content-between",
     );
 
     const leftcontainer = document.createElement("div");
-
-    // const aDiscripion = document.createElement("a");
-    // aDiscripion.classList.add("btn", "btn-primary");
-    // aDiscripion.href = "#multiCollapseExample1";
-
-    const uniqued = "collapse-" + Date.now();
-
-    const aDescription = document.createElement("a");
-    aDescription.classList.add("btn", "btn-sm", "btn-outline-primary");
-    aDescription.textContent = "Details";
-
-    // --- الخصائص المهمة لـ Bootstrap ---
-    aDescription.setAttribute("href", `#${uniqueId}`);
-    aDiscripion.setAttribute("data-bs-toggle", "collapse");
-    aDiscripion.setAttribute("role", "button");
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
@@ -61,19 +51,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     leftcontainer.appendChild(checkbox);
     leftcontainer.appendChild(span);
-    // li.appendChild(aDisripion);
-    li.appendChild(leftcontainer);
 
-    // taskDescriptionInput = document.querySelector("#task-description textarea");
-    const tDesc = taskDescriptionInput ? taskDescriptionInput.value.trim() : "";
+    // 2. إنشاء وتجهيز زر التفاصيل (aDiscripion) قبل استخدامه
+    const aDiscripion = document.createElement("a");
+    aDiscripion.classList.add("btn", "btn-primary", "btn-sm");
+    aDiscripion.textContent = "Details";
+    aDiscripion.href = `#${uniqueId}`;
+    aDiscripion.setAttribute("data-bs-toggle", "collapse");
+    aDiscripion.setAttribute("role", "button");
 
+    topRow.appendChild(leftcontainer);
+    topRow.appendChild(aDiscripion);
+    li.appendChild(topRow);
+
+    // 3. إنشاء قسم الوصف المخفي
     const collapseDiv = document.createElement("div");
     collapseDiv.classList.add("collapse", "mt-2");
     collapseDiv.id = uniqueId;
 
     const cardBody = document.createElement("div");
     cardBody.classList.add("card", "card-body", "bg-light", "small");
-    cardBody.textContent = tDesc || "لا يوجد وصف لهذه المهمة";
+    cardBody.textContent = tDesc || "No description provided.";
 
     collapseDiv.appendChild(cardBody);
     li.appendChild(collapseDiv);
