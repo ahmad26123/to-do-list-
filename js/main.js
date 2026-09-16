@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const taskInput = document.getElementById("task-input");
-  const addTaskButton = document.getElementById("add-task-btn");
   const taskList = document.getElementById("task-list");
-  taskList.classList.add("list-group");
-  taskList.classList.add("list-group-flush");
+  taskList.classList.add("list-group", "list-group-flush");
+
   const emptyImage = document.querySelector(".empty-image");
+  const taskForm = document.getElementById("task-form");
 
   const toggleEmptyImage = () => {
     emptyImage.style.display =
@@ -12,39 +11,53 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const addTask = (event) => {
-    event.preventDefault();
-    const taskText = taskInput.value.trim();
-    if (taskText !== "") {
-      const li = document.createElement("li");
-      li.classList.add("list-group-item");
+    if (event) event.preventDefault();
 
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.className = "checkbox";
+    const taskTitleInput = document.querySelector("#task-title input");
+    const taskDescriptionInput = document.querySelector("#task-description textarea");
+    const userSelect = document.querySelector("#user-select select");
 
-      const span = document.createElement("span");
-      span.textContent = taskText;
+    const tTitle = taskTitleInput ? taskTitleInput.value.trim() : "";
+    const uSelec = userSelect ? userSelect.value.trim() : "";
 
-      li.appendChild(checkbox);
-      li.appendChild(span);
+    // 🔴 تصحيح 1: فحص إدخال العنوان واختيار المستخدم مع إضافة return للإيقاف
+    if (tTitle === "" || uSelec === "" || uSelec === "Choose...") {
+      alert("Please make sure you entered a task title and selected a user.");
+      return; // يمنع إكمال الإضافة في حال وجود خلل
+    }
 
-      const taskItem = document.createElement("li");
-      taskItem.textContent = taskText;
-      taskList.appendChild(li);
-      taskInput.value = "";
-      toggleEmptyImage();
+    // 🔴 تصحيح 2: استخدام classList بدلاً من className
+    const li = document.createElement("li");
+    li.classList.add("list-group-item", "d-flex", "align-items-center", "justify-content-between");
+
+    const leftcontainer = document.createElement("div");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.className = "form-check-input me-2";
+
+    const span = document.createElement("span");
+    span.textContent = `${tTitle} — (User: ${uSelec})`;
+
+    leftcontainer.appendChild(checkbox);
+    leftcontainer.appendChild(span);
+    li.appendChild(leftcontainer);
+
+    taskList.appendChild(li);
+    toggleEmptyImage();
+
+    taskTitleInput.value = "";
+    if (taskDescriptionInput) taskDescriptionInput.value = "";
+    userSelect.selectedIndex = 0;
+
+    const modelE = document.getElementById("staticBackdrop");
+    const modal = bootstrap.Modal.getInstance(modelE);
+    if (modal) {
+      modal.hide();
     }
   };
 
-  addTaskButton.addEventListener("click", addTask);
-  taskInput.addEventListener("keypress", (event) => {
-    usersMenu.classList.toggle("show");
-    if (event.key === "Enter") {
-      addTask();
-    }
-  });
-
-  //   addTaskButton.addEventListener("click", () => {
-
-  //   });
+  if (taskForm) {
+    taskForm.addEventListener("submit", addTask);
+  }
 });

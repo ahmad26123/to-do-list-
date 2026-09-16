@@ -75,17 +75,13 @@
               <h1 class="text-center mb-4 fw-bold text-primary">To-DO List</h1>
 
               <!-- Input Group Classes -->
-              <form class="input-group mb-4">
-                <input
-                  type="text"
-                  id="task-input"
-                  class="form-control"
-                  placeholder="Add a new task..."
-                />
-                <button type="submit" id="add-task-btn" class="btn btn-primary">
+            <div class="d-flex justify-content-center mb-4">
+              <button type="submit" id="add-task-btn" class="btn btn-primary btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">
                   Add
                 </button>
-              </form>
+                </div>
+                <!-- </form> -->
 
               <div class="todos-container">
                 <!-- List Group Class for Tasks -->
@@ -104,6 +100,65 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                      Launch static backdrop modal
+                                    </button> -->
+    
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+    
+    
+            <form id="task-form">
+    
+              <div class="input-group mb-3" id="task-title" name="task-title">
+                <span class="input-group-text" id="basic-addon1">Task Title</span>
+                <input type="text" class="form-control" placeholder="I have to ..." aria-label=""
+                  aria-describedby="basic-addon1">
+              </div>
+    
+    
+    
+              <div class="input-group mb-3" name="user-select" id="user-select"> 
+                <label class="input-group-text" for="inputGroupSelect01">Usere</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+    
+    
+    
+              <div class="input-group" id="task-description" name="task-description">
+                <span class="input-group-text">Task Description</span>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+              </div>
+    
+    
+    
+    
+    
+    
+              <button type="submit" class="btn btn-primary">Add Task</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </form>
+    
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
 
     <script
