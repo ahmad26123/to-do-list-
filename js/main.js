@@ -1,5 +1,7 @@
 // const { createElement } = require("react");
 
+import { deleteData, getData, postData, putData } from "./server";
+
 document.addEventListener("DOMContentLoaded", () => {
   const taskList = document.getElementById("task-list");
   taskList.classList.add("list-group", "list-group-flush");
@@ -146,3 +148,19 @@ const creatStatmint = (dad) => {
   div.appendChild(ul);
   dad.appendChild(div);
 };
+
+
+// POST
+postData(url, userData);
+
+// GET
+getData(url);
+
+// PUT
+putData(`${url}1`, {
+  name: "Ammar Updated",
+  email: "ammar.updated@gmail.com",
+});
+
+// DELETE
+deleteData(`${url}1`);
