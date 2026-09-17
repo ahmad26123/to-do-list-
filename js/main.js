@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const emptyImage = document.querySelector(".empty-image");
   const taskForm = document.getElementById("task-form");
 
-
   const toggleEmptyImage = () => {
     emptyImage.style.display =
       taskList.children.length === 0 ? "block" : "none";
@@ -48,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // const checkbox = document.createElement("input");
     // checkbox.type = "checkbox";
     // checkbox.className = "form-check-input me-2";
-    const statment = creatStatmint(leftcontainer);
+    creatStatmint(leftcontainer);
 
     const span = document.createElement("span");
     span.textContent = `${tTitle} — (User: ${uSelec})`;
@@ -99,17 +98,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const creatStatmint = (dad) => {
-  const statments = [
-    "statment 1",
-    "statment 2",
-    "statment 3",
-  ];
+  const statments = ["statment 1", "statment 2", "statment 3"];
   const div = document.createElement("div");
   div.className = "btn-group dropend";
   const btn = document.createElement("button");
   btn.className = "btn btn-secondary dropdown-toggle";
-  btn.setAttribute('data-bs-toggle', 'dropdown');
-  btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute("data-bs-toggle", "dropdown");
+  btn.setAttribute("aria-expanded", "false");
+  btn.textContent = statments[0];
 
   const ul = document.createElement("ul");
   ul.className = "dropdown-menu";
@@ -120,6 +116,28 @@ const creatStatmint = (dad) => {
     a.className = "dropdown-item";
     a.href = "#";
     a.textContent = statment;
+    btn.style.backgroundColor = "red";
+
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      btn.textContent = statment;
+
+      switch (statment) {
+        case "statment 1":
+          btn.style.backgroundColor = "red";
+          break;
+
+        case "statment 2":
+          btn.style.backgroundColor = "blue";
+          break;
+
+        case "statment 3":
+          btn.style.backgroundColor = "green";
+          break;
+      }
+    });
+
     li.appendChild(a);
     ul.appendChild(li);
   });
@@ -127,7 +145,4 @@ const creatStatmint = (dad) => {
   div.appendChild(btn);
   div.appendChild(ul);
   dad.appendChild(div);
-  return statments[0]; // Return the first statement as the default
-  console.log(statments.values());
-
 };
