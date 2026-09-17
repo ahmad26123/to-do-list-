@@ -1,4 +1,4 @@
-const { createElement } = require("react");
+// const { createElement } = require("react");
 
 document.addEventListener("DOMContentLoaded", () => {
   const taskList = document.getElementById("task-list");
@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const emptyImage = document.querySelector(".empty-image");
   const taskForm = document.getElementById("task-form");
+
 
   const toggleEmptyImage = () => {
     emptyImage.style.display =
@@ -44,15 +45,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const leftcontainer = document.createElement("div");
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.className = "form-check-input me-2";
+    // const checkbox = document.createElement("input");
+    // checkbox.type = "checkbox";
+    // checkbox.className = "form-check-input me-2";
+    const statment = creatStatmint(leftcontainer);
 
     const span = document.createElement("span");
     span.textContent = `${tTitle} — (User: ${uSelec})`;
 
-    leftcontainer.appendChild(checkbox);
+    // leftcontainer.appendChild(checkbox);
     leftcontainer.appendChild(span);
+    leftcontainer.classList.add("d-flex", "align-items-center", "gap-2");
 
     const aDiscripion = document.createElement("a");
     aDiscripion.classList.add("btn", "btn-primary", "btn-sm");
@@ -96,10 +99,35 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const creatStatmint = (dad) => {
+  const statments = [
+    "statment 1",
+    "statment 2",
+    "statment 3",
+  ];
   const div = document.createElement("div");
   div.className = "btn-group dropend";
   const btn = document.createElement("button");
-  btn.className = "btn btn-secondary dropdown-toggle"
-  btn.data-bs-toggle = "dropdown"
+  btn.className = "btn btn-secondary dropdown-toggle";
+  btn.setAttribute('data-bs-toggle', 'dropdown');
+  btn.setAttribute('aria-expanded', 'false');
+
+  const ul = document.createElement("ul");
+  ul.className = "dropdown-menu";
+
+  statments.forEach((statment) => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.className = "dropdown-item";
+    a.href = "#";
+    a.textContent = statment;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+  console.log(ul);
+  div.appendChild(btn);
+  div.appendChild(ul);
+  dad.appendChild(div);
+  return statments[0]; // Return the first statement as the default
+  console.log(statments.values());
 
 };
