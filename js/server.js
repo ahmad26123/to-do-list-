@@ -46,9 +46,9 @@ const userData = {
 };
 
 // PUT
- const putData = async (url, data) => {
+const putData = async (baseUrl, id, data) => {
   try {
-    const resp = await fetch(url, {
+    const resp = await fetch(`${baseUrl}/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -68,10 +68,12 @@ const userData = {
   }
 };
 
+// طريقة الاستدعاء الجديدة:
+// putData("http://localhost:3000/users", user.id, updatedData);
 // DELETE
- const deleteData = async (url) => {
+const deleteData = async (baseUrl, id) => {
   try {
-    const resp = await fetch(url, {
+    const resp = await fetch(`${baseUrl}/${id}`, {
       method: "DELETE",
     });
 
@@ -87,19 +89,21 @@ const userData = {
   }
 };
 
+// الاستدعاء الجديد يصبح هكذا:
+// deleteData("http://localhost:3000/users", user.id);
 
 
 // POST
-postData(url, userData);
+// postData(url, userData);
 
-// GET
-getData(url);
+// // GET
+// getData(url);
 
-// PUT
-putData(`${url}1`, {
-  name: "Ammar Updated",
-  email: "ammar.updated@gmail.com",
-});
+// // PUT
+// putData(`${url}1`, {
+//   name: "Ammar Updated",
+//   email: "ammar.updated@gmail.com",
+// });
 
-// DELETE
-deleteData(`${url}1`);
+// // DELETE
+// deleteData(`${url}1`);
