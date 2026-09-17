@@ -46,12 +46,17 @@ const creatStatmint = (parentContainer) => {
       switch (statment) {
         case "statment 1":
           btn.style.backgroundColor = "red";
+          a.textContent = "Inactive";
+
           break;
         case "statment 2":
           btn.style.backgroundColor = "blue";
+          a.textContent = "isLoading";
+
           break;
         case "statment 3":
           btn.style.backgroundColor = "green";
+          a.textContent = "success";
           break;
       }
     });
@@ -66,7 +71,16 @@ const creatStatmint = (parentContainer) => {
 };
 
 // (Task Item Builder)
-const createTaskElement = (tTitle, uSelec, tDesc, uniqueId) => {
+const createTaskElement = (tTitle, uSelec, tDesc, uniqueId, userId) => {
+  //const data = [tTitle, uSelec, tDesc, uniqueId];
+  const newTodo = {
+    title: tTitle,
+    description: tDesc,
+    userId: userId,
+    status: Inactive
+  };
+
+  postData("http://localhost:3000/todos/", newTodo);
   const li = document.createElement("li");
   li.classList.add("list-group-item", "mb-2");
 
@@ -108,8 +122,15 @@ const createTaskElement = (tTitle, uSelec, tDesc, uniqueId) => {
   return li;
 };
 
+const renderTasks = async () => {
+  const todos = await getData("http://localhost:3000/todos/");
+  console.log("Fetched Todos:", todos);
+}
+
 
 document.addEventListener("DOMContentLoaded", async () => {
+
+  renderTasks();
 
   const taskList = document.getElementById("task-list");
   const emptyImage = document.querySelector(".empty-image");
@@ -149,7 +170,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     
     const uniqueId = "collapse-" + Date.now();
-    const taskElement = createTaskElement(tTitle, uSelec, tDesc, uniqueId);
+    const taskElement = createTaskElement(tTitle, uSelec, tDesc, uniqueId, userSelectElement.id);
 
     taskList.appendChild(taskElement);
     toggleEmptyImage();
