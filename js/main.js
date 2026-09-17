@@ -1,6 +1,6 @@
 // const { createElement } = require("react");
 
-import { deleteData, getData, postData, putData } from "./server";
+// import { deleteData, getData, postData, putData } from "./server";
 
 document.addEventListener("DOMContentLoaded", () => {
   const taskList = document.getElementById("task-list");
@@ -22,6 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
       "#task-description textarea",
     );
     const userSelect = document.querySelector("#user-select select");
+    
+    const users = getData("http://localhost:3000/users/");
+    console.log(users)
+    const cOptine = document.createElement("option")
 
     const tTitle = taskTitleInput ? taskTitleInput.value.trim() : "";
     const tDesc = taskDescriptionInput ? taskDescriptionInput.value.trim() : "";
@@ -31,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Please make sure you entered a task title and selected a user.");
       return;
     }
+
+    
 
     const uniqueId = "collapse-" + Date.now();
 
@@ -149,18 +155,17 @@ const creatStatmint = (dad) => {
   dad.appendChild(div);
 };
 
+// // POST
+// postData(url, userData);
 
-// POST
-postData(url, userData);
+// // GET
+// getData(url);
 
-// GET
-getData(url);
+// // PUT
+// putData(`${url}1`, {
+//   name: "Ammar Updated",
+//   email: "ammar.updated@gmail.com",
+// });
 
-// PUT
-putData(`${url}1`, {
-  name: "Ammar Updated",
-  email: "ammar.updated@gmail.com",
-});
-
-// DELETE
-deleteData(`${url}1`);
+// // DELETE
+// deleteData(`${url}1`);

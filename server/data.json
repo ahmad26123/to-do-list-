@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "name": "Ammar",
+      "email": "ammarfarha@gmail.com",
+      "password": "1234",
+      "id": "pFLyiLljggk"
+    },
+    {
+      "name": "Ammar",
+      "email": "ammarfarha@gmail.com",
+      "password": "1234",
+      "id": "EtTC8-TlI9Q"
+    },
+    {
+      "name": "Ammar",
+      "email": "ammarfarha@gmail.com",
+      "password": "1234",
+      "id": "N1zvk_98UTY"
+    },
+    {
+      "name": "Ammar",
+      "email": "ammarfarha@gmail.com",
+      "password": "1234",
+      "id": "oaQ1u-Nz4dQ"
+    },
+    {
+      "name": "Ammar",
+      "email": "ammarfarha@gmail.com",
+      "id": "9Az91avepGo"
+    },
+    {
+      "name": "Ammar",
+      "email": "ammarfarha@gmail.com",
+      "id": "M5J23z515Mc"
+    }
+  ],
+  "todos": [
+    {
+      "title": "ggg",
+      "description": "des",
+      "users.id": "EtTC8-TlI9Q",
+      "status": "success",
+      "id": "AZPD3er7GP8"
+    },
+    {
+      "title": "ggg",
+      "description": "des",
+      "users.id": "N1zvk_98UTY",
+      "status": "isLoading",
+      "id": "CQbaqfGv010"
+    },
+    {
+      "title": "ggg",
+      "description": "des",
+      "users.id": "oaQ1u-Nz4dQ",
+      "status": "Inactive",
+      "id": "REFwNpicW1Q"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

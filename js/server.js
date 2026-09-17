@@ -6,7 +6,7 @@ const userData = {
 };
 
 // POST
-export const postData = async (url, data) => {
+ const postData = async (url, data) => {
   try {
     const resp = await fetch(url, {
       method: "POST",
@@ -29,7 +29,7 @@ export const postData = async (url, data) => {
 };
 
 // GET
-export const getData = async (url) => {
+ const getData = async (url) => {
   try {
     const resp = await fetch(url);
 
@@ -46,7 +46,7 @@ export const getData = async (url) => {
 };
 
 // PUT
-export const putData = async (url, data) => {
+ const putData = async (url, data) => {
   try {
     const resp = await fetch(url, {
       method: "PUT",
@@ -69,7 +69,7 @@ export const putData = async (url, data) => {
 };
 
 // DELETE
-export const deleteData = async (url) => {
+ const deleteData = async (url) => {
   try {
     const resp = await fetch(url, {
       method: "DELETE",
