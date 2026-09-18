@@ -38,12 +38,33 @@ const userData = {
     }
 
     const result = await resp.json();
-    console.log("GET:", result);
+    // console.log("GET:", result);
     return result;
   } catch (error) {
     console.error("Server Error:", error);
   }
 };
+
+// const getUserNameById = async (userId) => {
+//   try {
+//     const response = await fetch(`http://localhost:3000/users/${userId}`);
+//     if (!response.ok) throw new Error("User not found");
+
+//     const user = await response.json();
+//     return user.name; // يرجع اسم المستخدم مباشرة (مثلاً: "Ammar")
+//   } catch (error) {
+//     console.error("Error fetching user:", error);
+//   }
+// };
+
+const getUserById = async (url, userId) => {
+  return fetch(url + userId).then((response) => {
+    if (!response.ok) throw new Error("User not found")
+    return response.json();
+  }).catch((error) => {
+    console.log("Error fetching user :" + error)
+  });
+}
 
 // PUT
 const putData = async (baseUrl, id, data) => {

@@ -1,12 +1,6 @@
 {
   "users": [
     {
-      "name": "Ammar",
-      "email": "ammarfarha@gmail.com",
-      "password": "1234",
-      "id": "pFLyiLljggk"
-    },
-    {
       "name": "ahmad",
       "email": "ahmad26@gmail.com",
       "password": "1234",
@@ -16,8 +10,8 @@
   "todos": [
     {
       "title": "ggg",
-      "description": "des",
-      "users.id": "EtTC8-TlI9Q",
+      "description": " desdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdes",
+      "userId": "EtTC8-TlI9Q",
       "status": "success",
       "id": "AZPD3er7GP8"
     }
