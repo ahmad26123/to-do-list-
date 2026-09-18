@@ -10,3 +10,24 @@
 /* .todo-app{
   width: 500px;
 } */
+
+/* ضبط استجابة القوائم والعناصر داخل البطاقة */
+#task-list {
+  width: 100%;
+  padding: 0;
+}
+
+#task-list .list-group-item {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 10px !important;
+  margin-bottom: 8px;
+  padding: 10px 14px;
+}
+
+/* منع انكماش مجموعة الأزرار في الجانب الأيمن */
+#task-list .list-group-item .btn-group,
+#task-list .list-group-item .btn-sm {
+  font-size: 0.82rem;
+  white-space: nowrap;
+}

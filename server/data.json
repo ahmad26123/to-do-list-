@@ -5,17 +5,49 @@
       "email": "ahmad26@gmail.com",
       "password": "1234",
       "id": "EtTC8-TlI9Q"
+    },
+    {
+      "name": "hamlar",
+      "email": "hamlar5r5r@gmail.com",
+      "password": "4321",
+      "id": "EtTC9-TlI9Q"
+    },
+    {
+      "name": "hizenegg",
+      "email": "gizehizenomlite@gmail.com",
+      "password": "2314",
+      "id": "EtTC10-TlI9Q"
     }
   ],
   "todos": [
     {
-      "title": "ggg",
-      "description": " desdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdesdes",
+      "title": "kazia",
+      "description": "mack some mony $$$$$",
+      "userId": "EtTC9-TlI9Q",
+      "status": "Inactive",
+      "id": "J45IABFABiw"
+    },
+    {
+      "title": "gym",
+      "description": "",
       "userId": "EtTC8-TlI9Q",
+      "status": "isLoading",
+      "id": "6cEhyMtdYUY"
+    },
+    {
+      "title": "finaly",
+      "description": "ooooooooooooooooooooooooooooOOOOOOOOOOOOOOOOOOOOOOOOOOoooooooooooooooooOOOOOOOoooooooooo",
+      "userId": "EtTC9-TlI9Q",
       "status": "success",
-      "id": "AZPD3er7GP8"
+      "id": "lh0K5PAliis"
+    },
+    {
+      "title": "blank",
+      "description": "fill this blank",
+      "userId": "EtTC10-TlI9Q",
+      "status": "isLoading",
+      "id": "CLve57r1af0"
     }
-    
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }

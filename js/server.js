@@ -69,8 +69,8 @@ const getUserById = async (url, userId) => {
 // PUT
 const putData = async (baseUrl, id, data) => {
   try {
-    const resp = await fetch(`${baseUrl}/${id}`, {
-      method: "PUT",
+    const resp = await fetch(baseUrl + id, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
